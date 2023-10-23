@@ -66,7 +66,7 @@ class Server:
         for i in range(index, next_index):
             if i not in self.indexed_dataset():
                 next_index += 1
-                index += 1
+                # index += 1
                 continue
             data.append(self.indexed_dataset()[i])
 
