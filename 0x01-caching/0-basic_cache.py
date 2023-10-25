@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" BaseCaching module
+""" BasicCache module
 """
 from base_caching import BaseCaching
 from typing import Any, Dict, Optional
