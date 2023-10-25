@@ -12,8 +12,7 @@ server.indexed_dataset()
 try:
     server.get_hyper_index(300000, 100)
 except AssertionError:
-    print("AssertionError raised when out of range")        
-
+    print("AssertionError raised when out of range")
 
 index = 3
 page_size = 2
