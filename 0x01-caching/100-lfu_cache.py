@@ -32,15 +32,20 @@ class LFUCache(BaseCaching):
                     min_keys = [
                         k for k, v in self.frequency.items() if v == min_freq
                     ]
+                    discard_key = min_keys[0]
+
                     if len(min_keys) == 1:
-                        del self.cache_data[min_keys[0]]
-                        del self.frequency[min_keys[0]]
+                        del self.cache_data[discard_key]
+                        del self.frequency[discard_key]
                     else:
                         for k in self.order:
                             if k in min_keys:
                                 del self.cache_data[k]
                                 del self.frequency[k]
                                 break
+
+                    print("DISCARD: {}".format(discard_key))
+
                 self.cache_data[key] = item
                 self.frequency[key] = 1
                 self.order[key] = None
