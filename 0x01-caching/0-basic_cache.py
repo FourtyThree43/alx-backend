@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """ BaseCaching module
 """
-from typing import Any, Dict, Optional
 from base_caching import BaseCaching
+from typing import Any, Dict, Optional
 
 
 class BasicCache(BaseCaching):
