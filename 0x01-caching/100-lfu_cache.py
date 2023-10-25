@@ -19,14 +19,38 @@ class LFUCache(BaseCaching):
         self.order = OrderedDict()
 
     def put(self, key: Any, item: Any) -> None:
-        """ Add an item in the cache using MRU algorithm
+        """ Add an item in the cache using LFU algorithm
         """
         if key is not None and item is not None:
-            pass
+            if key in self.cache_data:
+                self.cache_data[key] = item
+                self.frequency[key] += 1
+                self.order.move_to_end(key)
+            else:
+                if len(self.cache_data) >= self.MAX_ITEMS:
+                    min_freq = min(self.frequency.values())
+                    min_keys = [
+                        k for k, v in self.frequency.items() if v == min_freq
+                    ]
+                    if len(min_keys) == 1:
+                        del self.cache_data[min_keys[0]]
+                        del self.frequency[min_keys[0]]
+                    else:
+                        for k in self.order:
+                            if k in min_keys:
+                                del self.cache_data[k]
+                                del self.frequency[k]
+                                break
+                self.cache_data[key] = item
+                self.frequency[key] = 1
+                self.order[key] = None
 
     def get(self, key: Any) -> Optional[Dict[Any, Any]]:
         """ Get an item by key.
         """
         if key is not None and key in self.cache_data:
-            pass
+            self.frequency[key] += 1
+            self.order.move_to_end(key)
+            return self.cache_data[key]
+
         return None
