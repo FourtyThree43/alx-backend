@@ -20,9 +20,16 @@
 
 ### Learning Objectives
 * Learn how to parametrize Flask templates to display different languages
+	**Parametrizing Flask Templates for Different Languages**: This involves using variables in Flask templates that will be filled with text in the appropriate language. The specific language can be determined by various methods such as user settings or URL parameters. Flask uses Jinja2 templating, and you can use placeholders for your text like `{{ text }}` which will be replaced with the actual text when rendering the template.
+
 * Learn how to infer the correct locale based on URL parameters, user settings or request headers
+	**Inferring Correct Locale**: This is about determining the user's preferred language. This can be done in several ways:
+    	- **URL Parameters**: The preferred language can be specified as a parameter in the URL. For example, `www.example.com/en` for English or `www.example.com/fr` for French.
+    	- **User Settings**: If users have a profile where they can set their preferred language, this setting can be used to determine the locale.
+    	- **Request Headers**: Web browsers include an `Accept-Language` header in HTTP requests which can be used to infer the locale.
+
 * Learn how to localize timestamps
-* Learn how to localize numbers
+	**Localizing Timestamps**: This refers to displaying timestamps according to the local conventions of the user's locale, including the date format and timezone. Python provides libraries like `pytz` and `babel` that can be used to localize timestamps.
 
 ### Environment
 * Language: Python 3.7.5
