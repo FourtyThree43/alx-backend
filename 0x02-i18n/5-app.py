@@ -43,7 +43,7 @@ users = {
 }
 
 
-def get_user() -> Union[Dict[str, str], None]:
+def get_user() -> Any:
     """ Returns a user dictionary or None if the ID cannot be found """
     login_id = request.args.get('login_as')
     if login_id:
