@@ -30,7 +30,7 @@ def get_locale() -> Optional[str]:
 @app.route('/')
 def get_index() -> str:
     """ Returns a string at the root route """
-    return render_template('3-index.html')
+    return render_template('0-index.html')
 
 
 if __name__ == "__main__":
