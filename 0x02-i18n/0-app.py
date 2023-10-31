@@ -4,10 +4,11 @@
 from flask import Flask, render_template
 
 app = Flask(__name__)
+app.url_map.strict_slashes = False
 
 
-@app.route('/', strict_slashes=False)
-def index():
+@app.route('/')
+def get_index() -> str:
     """ Returns a string at the root route """
     return render_template('0-index.html')
 
