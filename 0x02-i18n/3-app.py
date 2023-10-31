@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" 2. Get locale from request
+""" 3. Parametrize templates
 """
 from typing import Optional
 from flask import Flask, render_template, request
